@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="wardrobeAPP:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/wardrobeAPP_jar</output-path>
+    <root id="archive" name="wardrobeAPP.jar">
+      <element id="module-output" name="wardrobeAPP" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+    </root>
+  </artifact>
+</component>
