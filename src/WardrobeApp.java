@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,13 +24,27 @@ public class WardrobeApp {
 
     public void suggestOutfit(String weather) {
         System.out.println("Suggested Outfit for " + weather + ":");
-        // Simple logic for demonstration purposes
+        boolean outfitFound = false;
+        HashSet<String> suggestedTypes = new HashSet<>();
+
         for (WardrobeItem item : wardrobe) {
+            if (suggestedTypes.contains(item.getType())) {
+                continue;
+            }
+
             if (weather.equalsIgnoreCase("hot") && !item.getMaterial().equalsIgnoreCase("wool")) {
                 System.out.println(item);
+                suggestedTypes.add(item.getType());
+                outfitFound = true;
             } else if (weather.equalsIgnoreCase("cold") && item.getMaterial().equalsIgnoreCase("wool")) {
                 System.out.println(item);
+                suggestedTypes.add(item.getType());
+                outfitFound = true;
             }
+        }
+
+        if (!outfitFound) {
+            System.out.println("No suitable outfits found for " + weather + " weather.");
         }
     }
 
